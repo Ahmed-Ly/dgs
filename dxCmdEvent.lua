@@ -77,7 +77,7 @@ end)
 
 ----------------------------------------Insides
 dgsDxCmdAddCommandHandler("version",function(cmd)
-	outputCmdMessage(cmd,"[Version]1.62")
+	outputCmdMessage(cmd,"[Version]2.86")
 end)
 
 dgsDxCmdAddCommandHandler("mode",function(cmd,cmdtype)
