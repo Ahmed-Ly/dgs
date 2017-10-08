@@ -15,3 +15,10 @@ To know what I have done with dgs, Plz see the update logs, click here: http://a
 The reason why I release DGS is that I am ready to leave MTA. This is my only one contribution to MTA.
 
 At last, I am glad you to use DGS. And if there is someone want to make it better, just do it, editing the code, adding functions and events......
+
+
+# Auto Completion 
+link: http://www.mediafire.com/file/m6dm7815d5dihax/lua.zip 
+# Note:
+1.You must put it in file Notepad++\plugins\APIs.
+2.Not all of DGS Functions are added, but the rest will be added soon.
