@@ -1,7 +1,9 @@
-﻿function createTest()
-addEasingFunction("Pre_line",[[
+--[[
+function createTest()
+addEasingFunction("Pre_line",
 	return math.abs(value^2-0.5)*2
-]])
+)
+--]]
 
 wind = dgsDxCreateWindow(math.floor(0.2*sW),math.floor(0.3*sH),math.floor(0.4*sW),math.floor(0.4*sH),"Example Scroll Pane (exclude this window)",false)
 --pane = dgsDxCreateScrollPane(0,0,1,1,true,wind)
