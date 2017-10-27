@@ -27,6 +27,7 @@ function dgsDxSetCycleHitShapeRadius(chs,radius,relative)
 	calculateGuiPositionSize(chs,_,_,_,radius*2,radius*2,relative or false,true)
 	local sx = unpack(dgsGetData(chs,"absSize"))
 	return dgsSetData(chs,"radius",sx)
+
 end
 
 function dgsDxGetCycleHitShapeRadius(chs,relative)
@@ -36,16 +37,54 @@ function dgsDxGetCycleHitShapeRadius(chs,relative)
 end
 
 function dgsDxCycleHitShapeSetDebugMode(chs,debug)
+
 	assert(dgsGetType(chs) == "dgs-dxcyclehitshape","@dgsDxCycleHitShapeSetDebugMode argument 1,expect dgs-dxcyclehitshape got "..(dgsGetType(chs) or type(chs)))
 	dgsSetData(chs,"debug",debug and debug or false)
 	return true
-end
+mend
 
 function dxDrawCircle(posX,posY,radius,width,angleAmount,startAngle,stopAngle,color,postGUI)
 	if type(posX) ~= "number" or type(posY) ~= "number" then
 		return false
 	end
- 	posX,posY = posX+radius/2,posY+radius/2
+function dxDraw3DText(text, x, y, z, scale, font, color, maxDistance, colorCoded)
+	if not (x and y and z) then
+		outputDebugString("dxDraw3DText: One of the world coordinates is missing", 1);
+		return false;
+	end
+
+	if not (scale) then
+		scale = 2;
+	end
+	
+	if not (font) then
+		font = "default";
+	end
+	
+	if not (color) then
+		color = tocolor(255, 255, 255, 255);
+	end
+	
+	if not (maxDistance) then
+		maxDistance = 12;
+	end
+	
+	if not (colorCoded) then
+		colorCoded = false;
+	end
+	
+	local pX, pY, pZ = getElementPosition( localPlayer );	
+	local distance = getDistanceBetweenPoints3D(pX, pY, pZ, x, y, z);
+	
+	if (distance <= maxDistance) then
+		local x, y = getScreenFromWorldPosition(x, y, z);
+		
+		if (x and y) then
+			dxDrawText( text, x, y, _, _, color, scale, font, "center", "center", false, false, false, colorCoded);
+			return true;
+		end
+	end
+end 	posX,posY = posX+radius/2,posY+radius/2
 	local function clamp(val,lower,upper)
 		if lower > upper then lower,upper = upper,lower end
 		return math.max(lower,math.min(upper,val))
@@ -89,3 +128,47 @@ function dgsDxCheckRadius(x,y,radius)
 		return ahit
 	end
 end
+function dgsDraw3DText(text, x, y, z, scale, font, color, maxDistance, colorCoded)
+	if not (x and y and z) then
+		outputDebugString("dxDraw3DText: One of the world coordinates is missing", 1);
+		return false;
+	end
+
+	if not (scale) then
+		scale = 2;
+	end
+	
+	if not (font) then
+		font = "default";
+	end
+	
+	if not (color) then
+		color = tocolor(255, 255, 255, 255);
+	end
+	
+	if not (maxDistance) then
+		maxDistance = 12;
+	end
+	
+	if not (colorCoded) then
+		colorCoded = false;
+	end
+	
+	local pX, pY, pZ = getElementPosition( localPlayer );	
+	local distance = getDistanceBetweenPoints3D(pX, pY, pZ, x, y, z);
+	
+	if (distance <= maxDistance) then
+		local x, y = getScreenFromWorldPosition(x, y, z);
+		
+		if (x and y) then
+			dxDrawText( text, x, y, _, _, color, scale, font, "center", "center", false, false, false, colorCoded);
+			return true;
+		end
+	end
+end
+	
+	
+	
+	
+	
+	
