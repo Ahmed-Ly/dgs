@@ -1,3 +1,4 @@
+![Description of image](https://wiki.multitheftauto.com/images/2/2b/DGS_Logo.png)
 ```
                    /\\\\\\\\\\\\         /\\\\\\\\\\\\     /\\\\\\\\\\\
                    \/\\\////////\\\     /\\\//////////    /\\\/////////\\\
